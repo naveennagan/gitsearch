@@ -5,7 +5,7 @@ var projects = [
   { name: "Project 2" }
 ];
 
-class ProjectDashboardComponent extends Component {
+class ImportedProjectDashboardComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -14,20 +14,11 @@ class ProjectDashboardComponent extends Component {
     }
   }
 
-  isProjectImported = (project) => {
-    var projFound = this.props.importedprojects["data"].find((proj) => {
-      proj["id"] == project["id"];
-    })
-    return projFound;
-  }
-
   getProjectSection = () => {
     return <section class="row text-center placeholders">
       {
         (this.props.projects["data"] || []).map((project) => {
-          return <Project
-            imported={this.isProjectImported(project)}
-            importproject={this.props.onimport} project={project}></Project>
+          return <Project imported={true} importproject={this.props.onimport} project={project}></Project>
         })
       }
     </section>
@@ -46,11 +37,11 @@ class ProjectDashboardComponent extends Component {
   render() {
     return (
       <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-        <h1>Search Results TopicPack {this.props.projects["message"]}</h1>
+        <h1>Imported Projects - TopicPack {this.props.projects["message"]}</h1>
         {this.getProjectSection()}
       </main>
     )
   }
 }
 
-export default ProjectDashboardComponent;
+export default ImportedProjectDashboardComponent;

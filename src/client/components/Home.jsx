@@ -17,8 +17,9 @@ class HomeComponent extends Component {
 
   componentDidMount() {
     console.log("Component Mounted ! ");
-    //this.props.componentMounted();
+    this.props.getAllProjects();
   }
+
 
   render() {
     return (
@@ -26,6 +27,8 @@ class HomeComponent extends Component {
         <SearchComponent
           onsearch={this.props.searchProjects} />
         <NavigationComponent
+          onimport={this.props.importProject}
+          importedprojects={this.props.importedprojects}
           projects={this.props.projects} />
       </Fragment>
     )

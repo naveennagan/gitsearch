@@ -4,10 +4,12 @@ var config = {
     port: 6379,
     db: 0
   },
+  mongo: {
+    url: "mongodb://127.0.0.1:27017/TopicPack"
+  },
   github: {
     url: "https://api.github.com/search/repositories",
-    username: "naveennagan",
-    password: "Jintakchita12"
+    username: "naveennagan"
   }
 }
 module.exports = config;

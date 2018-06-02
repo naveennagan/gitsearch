@@ -3,7 +3,7 @@
 export default (state = {}, action = { type: "" }) => {
   switch (action.type) {
     case 'FETCHING_PROJECTS':
-      return { data: [], message: "Loading Please Wait." }
+      return { data: [], message: "" }
     case 'PROJECTS_SEARCH_FAILURE':
       return { data: [], message: "Error , Sorry it's not you it's us  :( !" }
     case 'PROJECTS_SEARCH_SUCCESS': {

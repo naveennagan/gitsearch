@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Home from '../components/Home.jsx';
 import { searchGithub } from '../actions/searchAction';
+import { importProject } from '../actions/projectActions';
+import { getProjects } from '../actions/projectActions';
 
 // two functions need to be implemented here
 // mapStateToProps
@@ -9,7 +11,8 @@ import { searchGithub } from '../actions/searchAction';
 const mapStateToProps = (state) => {
   return {
     name: state.home.name,
-    projects: state.projects
+    projects: state.projects,
+    importedprojects: state.importedprojects
   }
 }
 
@@ -29,6 +32,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     searchProjects: (topic) => {
       searchGithub(topic, dispatch);
+    },
+    importProject: (project) => {
+      importProject(project, dispatch);
+    },
+    getAllProjects: () => {
+      getProjects(dispatch);
     }
   }
 }

@@ -15,8 +15,18 @@ class ProjectComponent extends Component {
   }
 
   componentDidMount() {
+    this.setState({
+      project: this.props.project,
+      importProject: this.props.importProject
+    })
     console.log("Component Mounted ! ");
     //this.props.componentMounted();
+  }
+
+  importProject = (proj, cb) => {
+    return () => {
+      cb(proj);
+    }
   }
 
   render() {
@@ -26,7 +36,15 @@ class ProjectComponent extends Component {
           width="200" height="200" class="img-fluid rounded-circle"
           alt="Generic placeholder thumbnail" />
         <h4>{this.props.project["full_name"]}</h4>
-        <div class="text-muted">{this.props.project["full_name"]}</div>
+        {
+          this.props.imported ? <div>You Have it !</div> :
+            <div class="btn btn-outline-success my-2 my-sm-0"
+              onClick={this.importProject(this.props.project, this.props.importproject)}
+            >Import</div>
+        }
+        <div class="text-muted">{this.props.project["description"]}</div>
+        <div class="text-muted">Score {this.props.project["score"]}</div>
+        <div class="text-muted">Watchers {this.props.project["watchers"]}</div>
       </div>
     )
   }
