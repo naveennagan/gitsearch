@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-
+import React, { Component, Fragment } from 'react';
+import SearchComponent from './Search.jsx';
+import NavigationComponent from './Navigation.jsx';
 class HomeComponent extends Component {
 
   constructor(props) {
@@ -11,20 +12,20 @@ class HomeComponent extends Component {
 
   componentWillMount() {
     console.log("Component about to Mount ! ");
-    this.props.componentMounting();
+    //this.props.componentMounting();
   }
 
   componentDidMount() {
     console.log("Component Mounted ! ");
-    this.props.componentMounted();
+    //this.props.componentMounted();
   }
 
   render() {
     return (
-      <div>
-        <p>{this.state.name}</p>
-        <p>Component Status {this.props.name}</p>
-      </div>
+      <Fragment>
+        <SearchComponent />
+        <NavigationComponent />
+      </Fragment>
     )
   }
 }

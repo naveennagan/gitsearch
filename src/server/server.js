@@ -1,10 +1,27 @@
 var express = require('express');
 var path = require('path');
+var GitHub = require('./routes/GitHub');
+var redisHelper = require('./utils/redisHelper');
 
 var app = express();
 
-app.use(express.static(path.join(__dirname, './public/')));
+app.use(GitHub);
 
-app.listen(3124, function () {
-  console.log("Listening on 3124 ");
-})
+app.use(express.static(path.join(__dirname, '../../public/')));
+
+app.listen(3122, function () {
+  init();
+  console.log("Listening on 3122 ");
+});
+
+function init() {
+  redisHelper.init();
+}
+
+function close() {
+  redisHelper.close();
+}
+
+process.on('exit', function () {
+  close();
+});
