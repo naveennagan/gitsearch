@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Home from '../components/Home.jsx';
+import { searchGithub } from '../actions/searchAction';
 
 // two functions need to be implemented here
 // mapStateToProps
@@ -7,7 +8,8 @@ import Home from '../components/Home.jsx';
 
 const mapStateToProps = (state) => {
   return {
-    name: state.home.name
+    name: state.home.name,
+    projects: state.projects
   }
 }
 
@@ -24,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
         type: "MOUNTED"
       }
       dispatch(mountedAction);
+    },
+    searchProjects: (topic) => {
+      searchGithub(topic, dispatch);
     }
   }
 }

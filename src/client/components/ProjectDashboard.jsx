@@ -17,7 +17,7 @@ class ProjectDashboardComponent extends Component {
   getProjectSection = () => {
     return <section class="row text-center placeholders">
       {
-        projects.map((project) => {
+        (this.props.projects["data"] || []).map((project) => {
           return <Project project={project}></Project>
         })
       }
@@ -37,7 +37,7 @@ class ProjectDashboardComponent extends Component {
   render() {
     return (
       <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-        <h1>TopicPack</h1>
+        <h1>TopicPack {this.props.projects["message"]}</h1>
         {this.getProjectSection()}
       </main>
     )

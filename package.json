@@ -24,10 +24,12 @@
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.3.0",
     "request": "^2.87.0",
     "rollup": "^0.56.3",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-jsx": "^1.0.3",
+    "superagent": "^3.8.3",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.0.10"
   }

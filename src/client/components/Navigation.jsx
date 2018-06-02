@@ -39,7 +39,7 @@ class NavigationComponent extends Component {
               </li>
             </ul>
           </nav>
-          <ProjectDashboardComponent />
+          <ProjectDashboardComponent projects={this.props.projects} />
         </div>
       </div>
     )

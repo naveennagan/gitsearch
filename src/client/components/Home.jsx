@@ -23,8 +23,10 @@ class HomeComponent extends Component {
   render() {
     return (
       <Fragment>
-        <SearchComponent />
-        <NavigationComponent />
+        <SearchComponent
+          onsearch={this.props.searchProjects} />
+        <NavigationComponent
+          projects={this.props.projects} />
       </Fragment>
     )
   }

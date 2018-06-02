@@ -25,8 +25,8 @@ class ProjectComponent extends Component {
         <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs="
           width="200" height="200" class="img-fluid rounded-circle"
           alt="Generic placeholder thumbnail" />
-        <h4>{this.props.project.name}</h4>
-        <div class="text-muted">{this.props.project.name}</div>
+        <h4>{this.props.project["full_name"]}</h4>
+        <div class="text-muted">{this.props.project["full_name"]}</div>
       </div>
     )
   }
